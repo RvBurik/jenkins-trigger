@@ -18,11 +18,11 @@ const sleep = (seconds) => {
 async function requestJenkinsJob(jobName, params) {
   const jenkinsEndpoint = core.getInput('url');
   core.info(`>>> Meegegeven URL: ${jenkinsEndpoint}`);
-  core.info(`>>> Url die meegegeven wordt aan het request: ${jenkinsEndpoint}/job/${jobName}/buildWithParameters`)
+  core.info(`>>> Url die meegegeven wordt aan het request: ${jenkinsEndpoint}/job/${jobName}`)
   core.info(`>>> API TOKEN: ${API_TOKEN}`)
   const req = {
     method: 'POST',
-    url: `${jenkinsEndpoint}/job/${jobName}/buildWithParameters`,
+    url: `${jenkinsEndpoint}/job/${jobName}`,
     form: params,
     headers: {
       'Authorization': `Basic ${API_TOKEN}`
