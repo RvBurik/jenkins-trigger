@@ -31,7 +31,7 @@ async function requestJenkinsJob(jobName, params) {
   await new Promise((resolve, reject) => request(req)
     .on('response', (res) => {
       core.info(`>>> Job is started! YOLO`);
-      core.info(req);
+      core.info(req.toString());
       resolve();
     })
     .on("error", (err) => {
