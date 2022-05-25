@@ -31,7 +31,6 @@ async function requestJenkinsJob(jobName, params) {
   await new Promise((resolve, reject) => request(req)
     .on('response', (res) => {
       core.info(`>>> Job is started! YOLO`);
-      core.info(req.toString());
       resolve();
     })
     .on("error", (err) => {
@@ -48,6 +47,7 @@ async function getJobStatus(jobName) {
   const req = {
     method: 'get',
     url: `${jenkinsEndpoint}/job/${jobName}/lastBuild/api/json`,
+    dataType: 'json',
     headers: {
       'Authorization': `Basic ${API_TOKEN}`
     }
